@@ -1,9 +1,11 @@
-PIN = 1234
+import getpass
+
+PIN = "1234"
 attempts = 0
 max_attempts = 3
 
 while attempts < max_attempts:
-    supplied_pin = int(input("Enter your PIN: "))
+    supplied_pin = getpass.getpass(prompt='Enter your PIN: ')
     if supplied_pin == PIN:
         print("You're in!")
         break
@@ -17,14 +19,11 @@ while attempts < max_attempts:
                 print(f"You have {max_attempts-attempts} attempts left.")
 
 
-
-
-
-# PIN = 1234
+# PIN = "1234"
 # attempts = 3
 #
 # while attempts > 0:
-#     supplied_pin = int(input("Enter your PIN: "))
+#     supplied_pin = (input("Enter your PIN: "))
 #     if supplied_pin == PIN:
 #         print("You're in!")
 #         break
