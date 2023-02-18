@@ -14,28 +14,28 @@ pattern = os.path.join(hdir, '*')
 
 
 #Use the glob.glob() function to obtain the list of filenames
-
 print(glob.glob(hdir))
 files = glob.glob(pattern)
-print("\n", "******files within this folder****") #use \n for new line and .join to present each element in list on new line
+print("")
+print("******files within this folder****") #use \n for new line and .join to present each element in list on new line
 print("\n" .join(files))
+print("")
 
 
 
 #use os.path.getsize to find each file's size
 #Add a test to only display files that do not have a size of zero
-
-print("\n", "******size of each file****")
+print("******size of each file****")
 for filename in glob.glob(pattern): #glob.glob returns a list. getsize expects individual files. iterating over that list gives each individual file and size.
     if os.path.getsize(filename) != 0: #add test to detect if a file size is 0. if it is. ignore it
         print(os.path.getsize(filename))
+print("")
 
 
 
 #Remove the leading directory name(s) from each filename before you print it
-
-print("\n", "******each file without it's path****")
+print("******each file without it's path****")
 for filename in glob.glob(pattern): #glob.glob returns a list. os.path.basenameindividual files. iterating over that list gives each individual file without the path
     print(os.path.basename(filename))
-
+print("")
 #bizarre refomatting occuring when adding/removing newlines or empty strings to create newlines. ask Chris :)
