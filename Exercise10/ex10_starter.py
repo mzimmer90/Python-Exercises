@@ -5,7 +5,7 @@ import os
 # Get the directory name
 if sys.platform == 'win32':
     #added extra path info as my home directory is c:/users/admin
-    hdir = os.environ['HOMEPATH'] = 'C:/Users/Admin/Documents/QA evening learning/Chris Beagles/maxexercise10/exercise10/'
+    hdir = os.environ['HOMEPATH'] #= 'C:/Users/Admin/Documents/QA evening learning/Chris Beagles/maxexercise10/exercise10/'
 else:
     hdir = os.environ['HOME']
 
