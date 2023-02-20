@@ -19,19 +19,18 @@ while attempts < max_attempts:
         break
         # If entered pin is correct, break out of loop
 
-    else:
-        if attempts < max_attempts:
-            attempts += 1
-            print("Wrong PIN!")
-            # if wrong pin but not reached max attempts, add 1 to number of attempts and print "Wrong PIN!"
+    if attempts < max_attempts:
+        attempts += 1
+        print("Wrong PIN!")
+        # if wrong pin but not reached max attempts, add 1 to number of attempts and print "Wrong PIN!"
 
-            if attempts == 3:
-                print("Your account has been locked.")
-                # if we have reached 3 failed attempts, will lock account
+        if attempts == 3:
+            print("Your account has been locked.")
+            # if we have reached 3 failed attempts, will lock account
 
-            else:
-                print(f"You have {max_attempts-attempts} attempts left.")
-                # if not at failed 3 attempt, print remaining attempts
+        else:
+            print(f"You have {max_attempts-attempts} attempts left.")
+            # if not at failed 3 attempt, print remaining attempts
 
 
 # PIN = "1234"
