@@ -50,7 +50,7 @@ Or enter numbers, separated by comma (,) or space ( )
         while u_operator not in operators:
 
             # Print instructions for the user
-            print('Acceptable operations are addition (+), substraction (-), multiplication (*), and division (/)')
+            print('Acceptable operations are addition (+), subtraction (-), multiplication (*), and division (/)')
 
             # Get user input for the operator
             u_operator = input('Which operator would you like to use? ')
