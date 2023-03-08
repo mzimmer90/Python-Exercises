@@ -31,11 +31,11 @@ Or enter numbers, separated by comma (,) or space ( )
             print('There are no equations saved yet.')
 
     # If the user didn't enter "l", check if they entered "x" or "q"
-    elif u_input != "x" and u_input != "q":
+    elif u_input not in ["x", "q"]:
 
         # Split the user input into substrings
         substrings = u_input.split(",")
-        print(substrings)
+        print(substrings)  # debugging use
 
         # Initialize a list to store the numbers in the user input
         numbers = []
@@ -43,8 +43,17 @@ Or enter numbers, separated by comma (,) or space ( )
         # Loop through the substrings and split them into individual numbers
         for i in substrings:
             for num in i.split():
-                numbers.append(num)
-                print(numbers)
+                # Validate the number before appending to the list
+                try:
+                    num = int(num)
+                    numbers.append(str(num))
+                except ValueError:
+                    print('Please enter a valid input!')
+                    break
+                print(numbers)  # debugging use
+            else:
+                continue
+            break
 
         # Loop until the user enters a valid operator
         while u_operator not in operators:
@@ -63,7 +72,17 @@ Or enter numbers, separated by comma (,) or space ( )
         equation = u_operator.join(numbers)
 
         # Evaluate the equation and print the result
-        result = eval(equation)
+        result = int(numbers[0])
+        for i in range(1, len(numbers)):
+            if u_operator == '+':
+                result += int(numbers[i])
+            elif u_operator == '-':
+                result -= int(numbers[i])
+            elif u_operator == '*':
+                result *= int(numbers[i])
+            elif u_operator == '/':
+                result /= int(numbers[i])
+
         print(equation, "=", result)
 
         # Write the equation and result to CalcHistory.txt
