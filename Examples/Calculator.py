@@ -46,48 +46,48 @@ Or enter numbers, separated by comma (,) or space ( )
                 # Validate the number before appending to the list
                 try:
                     num = int(num)
-                    numbers.append(str(num))
                 except ValueError:
                     print('Please enter a valid input!')
                     break
-                print(numbers)  # debugging use
+                else:
+                    numbers.append(str(num))
             else:
                 continue
             break
+        else:
+            # Loop until the user enters a valid operator
+            while u_operator not in operators:
 
-        # Loop until the user enters a valid operator
-        while u_operator not in operators:
+                # Print instructions for the user
+                print('Acceptable operations are addition (+), subtraction (-), multiplication (*), and division (/)')
 
-            # Print instructions for the user
-            print('Acceptable operations are addition (+), subtraction (-), multiplication (*), and division (/)')
+                # Get user input for the operator
+                u_operator = input('Which operator would you like to use? ')
 
-            # Get user input for the operator
-            u_operator = input('Which operator would you like to use? ')
+                # If the user entered an invalid operator, prompt them to try again
+                if u_operator not in operators:
+                    print('Please enter a valid operator!')
 
-            # If the user entered an invalid operator, prompt them to try again
-            if u_operator not in operators:
-                print('Please enter a valid operator!')
+            # Join the numbers into an equation using the chosen operator
+            equation = u_operator.join(numbers)
 
-        # Join the numbers into an equation using the chosen operator
-        equation = u_operator.join(numbers)
+            # Evaluate the equation and print the result
+            result = int(numbers[0])
+            for i in range(1, len(numbers)):
+                if u_operator == '+':
+                    result += int(numbers[i])
+                elif u_operator == '-':
+                    result -= int(numbers[i])
+                elif u_operator == '*':
+                    result *= int(numbers[i])
+                elif u_operator == '/':
+                    result /= int(numbers[i])
 
-        # Evaluate the equation and print the result
-        result = int(numbers[0])
-        for i in range(1, len(numbers)):
-            if u_operator == '+':
-                result += int(numbers[i])
-            elif u_operator == '-':
-                result -= int(numbers[i])
-            elif u_operator == '*':
-                result *= int(numbers[i])
-            elif u_operator == '/':
-                result /= int(numbers[i])
+            print(equation, "=", result)
 
-        print(equation, "=", result)
-
-        # Write the equation and result to CalcHistory.txt
-        with open('CalcHistory.txt', 'a') as CalcHistory:
-            CalcHistory.write(equation + "=" + str(result) + "\n")
+            # Write the equation and result to CalcHistory.txt
+            with open('CalcHistory.txt', 'a') as CalcHistory:
+                CalcHistory.write(equation + "=" + str(result) + "\n")
 
     # If the user entered "x" or "q", exit the loop
     else:
