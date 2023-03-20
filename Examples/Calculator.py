@@ -23,7 +23,7 @@ Or enter numbers, separated by comma (,) or space ( )
     if u_input == "l":
         try:
             with open('CalcHistory.txt', 'r') as CalcHistory:
-                last_eq = CalcHistory.readlines()[-1]
+                last_eq = CalcHistory.readline(-1)
                 print('Your last equation was: ' + last_eq)
         except FileNotFoundError:
             print('The history file does not exist yet. Please complete at least one equation.')

@@ -1,7 +1,18 @@
-from random import randint
+import random
 
-LottoNumbers = []
-while len(LottoNumbers) < 6:
-    LottoNumbers.append(randint(1, 50))
-LottoNumbers.sort(key=int)
-print(LottoNumbers)
+
+class Lotto:
+    def __init__(self):
+        self.first_name = input("Enter your first name: ")
+        self.last_name = input("Enter your last name: ")
+        self.numbers = []
+        self.roll_numbers()
+
+    def roll_numbers(self):
+        self.numbers = random.sample(range(1, 51), 6)
+
+    def print_numbers(self):
+        print("Lotto Numbers: ", end="")
+        for num in self.numbers:
+            print(num, end=" ")
+        print()
