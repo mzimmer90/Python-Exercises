@@ -5,6 +5,9 @@ class NonBirdFlyingAnimal(FlyingAnimal):
     _all_instances = []
 
     def __init__(self, name, wingspan, distance):
+        if distance > 9000:
+            raise ValueError("Only Son Goku can be over 9000")
+
         super().__init__(name, wingspan)
         self._distance = distance
         NonBirdFlyingAnimal._all_instances.append(self)
