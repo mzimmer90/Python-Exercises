@@ -2,12 +2,12 @@ from flying_animal import FlyingAnimal
 
 
 class NonBirdFlyingAnimal(FlyingAnimal):
-    all_instances = []
+    _all_instances = []
 
     def __init__(self, name, wingspan, distance):
         super().__init__(name, wingspan)
         self._distance = distance
-        NonBirdFlyingAnimal.all_instances.append(self)
+        NonBirdFlyingAnimal._all_instances.append(self)
 
     @property
     def distance(self):
@@ -24,7 +24,7 @@ class NonBirdFlyingAnimal(FlyingAnimal):
     @classmethod
     def animal_with_longest_distance(cls):
         longest_distance_instance = None
-        for instance in cls.all_instances:
+        for instance in cls._all_instances:
             if longest_distance_instance is None or instance.distance > longest_distance_instance.distance:
                 longest_distance_instance = instance
         return f"The Non-Bird Flying Animal with the longest distance is {longest_distance_instance.name} " \

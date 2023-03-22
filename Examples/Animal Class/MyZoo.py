@@ -44,8 +44,10 @@ print(f"So far, there are {FlyingAnimal.flying_animal_count} flying animals in m
 
 snake = NonBirdFlyingAnimal("Noodle", 0, 100)
 frog = NonBirdFlyingAnimal("Jack", 0, 15)
+fish = NonBirdFlyingAnimal("Bubble", 7, 200)
 squirrel = NonBirdFlyingAnimal("Charlie", 7, 150)
 
 print(f"So far, there are {NonBirdFlyingAnimal.flying_animal_count} flying animals in my zoo.")
 
 print(NonBirdFlyingAnimal.animal_with_longest_distance())
+
