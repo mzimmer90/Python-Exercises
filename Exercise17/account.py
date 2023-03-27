@@ -8,8 +8,7 @@ class Account:
     def withdraw(self, amount):
         if self._balance < amount:
             raise InsufficientFundsException()
-        else:
-            self._balance -= amount
+        self._balance -= amount
 
     @property
     def balance(self):
